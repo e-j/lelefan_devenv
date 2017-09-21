@@ -1,6 +1,6 @@
 server {
     server_name localhost;
-    root /var/www/openskedge/web;
+    root /var/www/openskedge;
 
     location / {
         try_files $uri $uri/ @rewriteapp;
@@ -11,10 +11,10 @@ server {
     }
 
     location ~ ^/(app|app_dev|config)\.php(/|$) {
-        fastcgi_pass php-upstream;
+        fastcgi_pass php:9000;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME /var/www/openskedge$fastcgi_script_name;
         fastcgi_param HTTPS off;
     }
 
