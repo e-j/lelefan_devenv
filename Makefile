@@ -1,4 +1,4 @@
-.PHONY: run stop start down db clean
+.PHONY: run stop start down build db clean test
 
 run:
 	docker-compose up
@@ -17,8 +17,14 @@ start:
 down:
 	docker-compose down
 
+build:
+	docker-compose build
+
+
 db:
 	docker-compose exec db mysql -uroot -p"root"
 
 clean:
 	sudo rm -rf containers/logs
+
+test: clean build run
