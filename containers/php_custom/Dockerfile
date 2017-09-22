@@ -9,4 +9,4 @@ RUN apk add --update curl && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer --version
 
-WORKDIR /var/www/openskedge
+WORKDIR /var/www/serving_website

@@ -7,13 +7,13 @@ server {
     server_name localhost;
     error_log  /var/log/nginx/error.log;
     access_log /var/log/nginx/access.log;
-    root /var/www/openskedge;
+    root /var/www/serving_website;
 
     location ~ \.php$ {
         fastcgi_split_path_info ^(.+\.php)(/.+)$;
         fastcgi_pass phpupstream;
         fastcgi_index index.php;
         include fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME /var/www/openskedge$fastcgi_script_name;
+        fastcgi_param SCRIPT_FILENAME /var/www/serving_website$fastcgi_script_name;
     }
 }
