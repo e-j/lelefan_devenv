@@ -37,11 +37,11 @@ services:
         volumes_from:
             - php
         volumes:
-        - ./containers/nginx/site.template:/etc/nginx/conf.d/mysite.template
+        - ./containers/nginx/site.template:/etc/nginx/conf.d/default.conf
         - ./containers/logs/nginx/:/var/log/nginx
         ports:
-            - "8080:80"
-        environment:
-            - NGINX_HOST=localhost
-            - NGINX_PORT=80
-        command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+            - "8008:80"
+        # environment:
+        #     - NGINX_HOST=localhost
+        #     - NGINX_PORT=80
+        # command: /bin/bash -c "echo 'Updating configuration with environment' && envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && echo 'Starting NGINX' && nginx -g 'daemon off;'"
