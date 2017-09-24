@@ -1,12 +1,14 @@
 .PHONY: run stop start down build db clean test
 
 run:
-	docker-compose up
-    # docker-compose exec php chown -R www-data:www-data app/cache && rm -rf app/cache/*
-    # docker-compose exec php chown -R www-data:www-data app/logs
-    # docker-compose exec php php app/console doctrine:schema:update --force 2>/dev/null; true
-    # docker-compose exec php php app/console cache:clear 2>/dev/null; true
-    # docker-compose exec php php app/console doctrine:fixture:load
+	docker-compose up -d
+	docker-compose exec php chown -R www-data:www-data app/cache && rm -rf app/cache/*
+	docker-compose exec php chown -R www-data:www-data app/logs
+	docker-compose exec php composer install
+	docker-compose exec php php . doctrine:schema:update --force; true
+	docker-compose exec php php . cache:clear; true
+	docker-compose exec php php . doctrine:fixture:load
+
 
 stop:
 	docker-compose stop
