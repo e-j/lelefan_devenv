@@ -1,4 +1,4 @@
-FROM php:5.6.31-fpm-alpine
+FROM php:7.0.23-fpm-alpine
 
 # MAINTAINER Eric Jouffrey
 
