@@ -10,7 +10,7 @@ RUN rm /etc/localtime && \
 
 RUN set -xe \
     && apk add --update \
-        curl icu \
+        curl icu git \
     && apk add --no-cache --virtual .php-deps \
         make \
     && apk add --no-cache --virtual .build-deps \
