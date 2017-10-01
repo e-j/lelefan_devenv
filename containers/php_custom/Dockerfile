@@ -45,8 +45,9 @@ RUN echo "xdebug.remote_connect_back=1" >> /usr/local/etc/php/conf.d/docker-php-
 RUN echo "xdebug.idekey=\"PHPSTORM\"" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-# Configure short open tag for Symfony
-RUN echo "short_open_tag = Off" >> /usr/local/etc/php/php.ini
+# Configure PHP : short open tag for Symfony and date timezone
+RUN echo "short_open_tag = Off" >> /usr/local/etc/php/php.ini && \
+        echo "date.timezone = Europe/Paris" >> /usr/local/etc/php/php.ini
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
