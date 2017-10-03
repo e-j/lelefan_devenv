@@ -54,3 +54,4 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN composer --version
 
 WORKDIR /var/www/serving_website
+ADD parameters.yml /opt/
