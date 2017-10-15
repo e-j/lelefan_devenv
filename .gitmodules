@@ -1,3 +1,6 @@
 [submodule "OpenSkedge-lelefan"]
 	path = OpenSkedge-lelefan
 	url = git@github.com:janssens/OpenSkedge-lelefan.git
+[submodule "simple-booking"]
+	path = simple-booking
+	url = git@github.com:janssens/simple-booking-tool-lelefan.git
