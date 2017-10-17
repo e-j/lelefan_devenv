@@ -27,7 +27,7 @@ services:
         links:
             - db:mysqldb
         volumes:
-            - ./OpenSkedge-lelefan:/var/www/serving_website
+            - ./local_serving:/var/www/serving_website
     web:
         image: nginx
         depends_on:
