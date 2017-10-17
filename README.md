@@ -9,12 +9,21 @@
 
 ### Configure directory to serve
 
+By default, docker will serve any directory `local_serving` or any symbolic link
+with that name.
+
+#### Using links
+
+Symlink the directory you want to serve to `local_serving`
+
+#### By modifying docker-compose
+
 You can customize `docker-compose.yml` file, section *volumes* for the **php**
 container in order to select which website you wanna run.
 
 ~~~
 volumes:
-    - ./serving_test:/var/www/serving_website
+    - ./local_serving:/var/www/serving_website
 ~~~
 
 to

@@ -1,6 +1,19 @@
-.PHONY: run stop start down build db clean test
+.PHONY: run-test run-simple run-openskedge stop start down build db clean test
 
-run:
+
+.run_cleaning:
+	rm -rf local_serving
+
+run-test: .run_cleaning stop
+	ln -s serving_test local_serving
+	docker-compose up -d
+
+run-simple: .run_cleaning stop
+	ln -s simple-booking local_serving
+	docker-compose up -d
+
+run-openskedge: .run_cleaning stop
+	ln -s OpenSkedge-lelefan local_serving
 	docker-compose up -d
 	docker-compose exec php php app/check.php; true
 	docker-compose exec php cp /opt/parameters.yml app/config/parameters.yml
@@ -33,7 +46,7 @@ build:
 db:
 	docker-compose exec db mysql -uroot -p"root"
 
-clean:
+clean: .run_cleaning
 	sudo rm -rf containers/logs
 
 test: clean build run
