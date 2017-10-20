@@ -29,10 +29,11 @@ volumes:
 
 to
 
-~~
+~~~
 volumes:
     - ./OpenSkedge-lelefan:/var/www/serving_website
-~~
+~~~ 
+
 
 will serve openskedge.
 
