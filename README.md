@@ -2,10 +2,11 @@
 
 ## Requirements
 
+- Linux or MacOS (Cannot test Windows)
 - Docker
 - Docker compose
 
-## Start
+## How to start
 
 ### Configure directory to serve
 
